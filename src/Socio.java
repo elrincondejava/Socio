@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Socio {
     private String nombre;
     private String identificador;
@@ -47,5 +49,18 @@ public class Socio {
     public String toString() {
         return "Nombre: " + nombre + " Número de Socio: " + numeroSocio + "\n"
                 + "TIPO: " + tipo + " DNI: " + identificador;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Socio socio = (Socio) o;
+        return Objects.equals(identificador, socio.identificador);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identificador);
     }
 }
