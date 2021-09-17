@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class SocioClub {
@@ -79,5 +77,34 @@ public class SocioClub {
             return true;
         }
         return false;
+    }
+
+    public void generarYMostrarNumerosAleatorios() {
+        int contador = 0;
+        int sumaPares = 0;
+        for (int i = 1; i <= 10; i++) {
+            int numeroAleatorio = new Random().nextInt(11) + 10;
+            if (numeroAleatorio == 10) {
+                contador++;
+            }
+            if (numeroAleatorio%2 == 0) {
+                sumaPares += numeroAleatorio;
+            }
+            System.out.print(numeroAleatorio + "   ");
+        }
+        System.out.println("\nEl número 10 a salido " + contador + " veces.");
+        System.out.println("La suma de los números pares es: " + sumaPares);
+    }
+
+    public void mostrarCuantasVocales() {
+        Scanner scanner = new Scanner(System.in);
+        char letra;
+        StringBuilder vocales = new StringBuilder();
+        while ( (letra = scanner.next().charAt(0)) != 'X') {
+            if (String.valueOf(letra).matches("[aeiou]")) {
+                vocales.append(letra).append("  ");
+            }
+        }
+        System.out.println(vocales);
     }
 }

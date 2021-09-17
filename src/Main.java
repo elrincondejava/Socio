@@ -7,5 +7,9 @@ public class Main {
        // socioClub.listarSocios();
         socioClub.borrarNumerarios();
         socioClub.listarSocios();
+
+        socioClub.generarYMostrarNumerosAleatorios();
+
+        socioClub.mostrarCuantasVocales();
     }
 }
