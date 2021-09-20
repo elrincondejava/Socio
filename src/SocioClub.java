@@ -41,8 +41,8 @@ public class SocioClub {
 
     public int borrarNumerarios() {
         int contador = 0;
-
-        /* FORMA 1
+/*
+         FORMA 1
 
         for (Iterator<Socio> socioIterator = this.listadoSocios.iterator(); socioIterator.hasNext(); ) {
             Socio socio = socioIterator.next();
@@ -51,16 +51,16 @@ public class SocioClub {
                 contador++;
             }
         }
+*/
 
-        */
-
-        /* FORMA 2
+/*
+         FORMA 2
 
         this.listadoSocios.removeIf(socio -> this.isNumerario(socio));
 
          */
 
-        // FORMA 3
+        /* FORMA 3
         List<Socio> listadoSociosClonado = new ArrayList<>(this.listadoSocios);
         for (Socio socio : this.listadoSocios) {
             if (this.isNumerario(socio)) {
@@ -69,6 +69,19 @@ public class SocioClub {
             }
         }
         this.listadoSocios = listadoSociosClonado;
+        return contador;
+*/
+        //FORMA 4
+        List<Socio> listadoSociosSinNumerarios = new ArrayList<>();
+        for (Socio socio : this.listadoSocios) {
+            if (!this.isNumerario(socio)) {
+                listadoSociosSinNumerarios.add(socio);
+
+            } else {
+                contador++;
+            }
+        }
+        this.listadoSocios = listadoSociosSinNumerarios;
         return contador;
     }
 
@@ -99,6 +112,7 @@ public class SocioClub {
     public void mostrarCuantasVocales() {
         Scanner scanner = new Scanner(System.in);
         char letra;
+
         StringBuilder vocales = new StringBuilder();
         while ( (letra = scanner.next().charAt(0)) != 'X') {
             if (String.valueOf(letra).matches("[aeiou]")) {

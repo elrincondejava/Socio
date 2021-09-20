@@ -8,8 +8,8 @@ public class Main {
         socioClub.borrarNumerarios();
         socioClub.listarSocios();
 
-        socioClub.generarYMostrarNumerosAleatorios();
+        //socioClub.generarYMostrarNumerosAleatorios();
 
-        socioClub.mostrarCuantasVocales();
+        //socioClub.mostrarCuantasVocales();
     }
 }
